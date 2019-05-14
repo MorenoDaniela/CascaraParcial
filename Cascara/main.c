@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdio_ext.h> INCLUIR ENTIDADES 4 O 3
+#include <stdio_ext.h> //INCLUIR ENTIDADES 4 O 3
 #include "funciones.h"
 #define TRIES 3
 #define MAX_ESTRUCTURAUNO 10

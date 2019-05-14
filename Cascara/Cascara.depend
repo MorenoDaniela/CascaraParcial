@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1557846359 source:c:\users\pc\desktop\workspace\cascara\funciones.c
+1557849490 source:c:\users\pc\desktop\workspace\cascara\funciones.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"validaciones.h"
 
-1557846413 c:\users\pc\desktop\workspace\cascara\validaciones.h
+1557849268 c:\users\pc\desktop\workspace\cascara\validaciones.h
 
 1557848788 source:c:\users\pc\desktop\workspace\cascara\main.c
 	<stdio.h>
