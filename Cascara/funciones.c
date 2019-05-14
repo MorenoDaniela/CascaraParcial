@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include <stdio_ext.h>
+#include <stdio_ext.h>
 #include "validaciones.h"
 
 int getInt(char *msj, char *errorMsj, int minimo, int maximo, int reintentos, int *resultado)

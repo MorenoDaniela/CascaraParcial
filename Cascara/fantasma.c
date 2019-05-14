@@ -369,6 +369,32 @@ int ocho_ordenarDobleCadena(Fantasma* arrayFantasma,int limite)
     return retorno;
 }
 
+int ocho_ordenarTitulo(Fantasma* arrayFantasma,int limite)//usar para ordenar una sola cadena string
+{
+    int i;
+    Fantasma buffer;
+    int retorno=-1;
+
+    if (arrayFantasma!=NULL && limite>0)
+    {
+        for (i=0;i<=limite-1;i++)
+        {
+            if (arrayFantasma[i].isEmpty==1 || arrayFantasma[i+1].isEmpty==1)
+            {
+                continue;
+            }
+                if (strncmp(arrayFantasma[i].titulo,arrayFantasma[i+1].titulo,51)>0)
+                {
+                    buffer = arrayFantasma[i];
+                    arrayFantasma[i]= arrayFantasma[i+1];
+                    arrayFantasma[i+1]=buffer;
+                }
+        }
+        retorno=0;
+    }
+    return retorno;
+}
+
 void harcodearFantasmas(Fantasma* arrayFantasma, int limite)
 {
     strcpy(arrayFantasma[0].nombre,"BBB");

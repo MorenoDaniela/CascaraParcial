@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdio_ext.h> //INCLUIR ENTIDADES 4 O 3
+#include <stdio_ext.h> //INCLUIR ENTIDADES NO OLVIDAR
 #include "funciones.h"
 #define TRIES 3
 #define MAX_ESTRUCTURAUNO 10
@@ -47,7 +47,8 @@ int main()
     while(opcion!=5)
     {
         getInt("\n**MENU**\n1-STRUCT_UNO.\n2-STRUCT_DOS.\n3-STRUCT_TRES.\n4-STRUCT_CUATRO.\n5-Salir.\n","\nError, opcion invalida.\n",1,5,TRIES,&opcion);
-        system("cls");//system("clear");
+        system("clear");
+        //system("cls");//
         switch(opcion)
         {
         case 1:
