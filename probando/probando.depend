@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1558021534 source:c:\users\pc\desktop\workspace\probando\funciones.c
+	"funciones.h"
+	"validaciones.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1558020388 c:\users\pc\desktop\workspace\probando\validaciones.h
+
+1558026092 source:c:\users\pc\desktop\workspace\probando\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1558020388 c:\users\pc\desktop\workspace\probando\funciones.h
+
+1558020387 source:c:\users\pc\desktop\workspace\probando\validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validaciones.h"
+
