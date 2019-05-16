@@ -3,6 +3,7 @@
 #include "funciones.h"
 int main()
 {
+    /*
     int numero;
     float numeroF;
     char dni[12];//EL DNI CON PUNTOS
@@ -56,5 +57,20 @@ int main()
     printf("\nSEXO: %c",sexo);
     printf("\nLETRA: %c",letra);
     //printf("FECHA: %s",fecha);
+    */
+
+    int numero;
+    char mail[50];
+    char dni[24];
+
+    if(
+       getEmail("Ingrese mail: ","error.",5,50,3,mail)==0 &&
+        getInt("Ingrese: ","error.",1,1000,3,&numero)==0 &&
+       getDni("Ingrese dni: ","Error.",9,13,3,dni)==0 )
+    {
+        printf("El numero es: %d\n",numero);
+        printf ("El mail es: %s\n",mail);
+        printf("El dni es : %s\n",dni);
+    }
 
 }

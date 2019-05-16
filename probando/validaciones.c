@@ -12,10 +12,10 @@ int isValidInt(int numero, int minimo, int maximo)
 {
     if(numero >= minimo && numero <= maximo)
     {
-        return TRUE;
+        return 1;
     }else
     {
-        return FALSE;
+        return 0;
     }
 }
 
@@ -23,9 +23,9 @@ int isValidFloat(float numero, float minimo, float maximo)
 {
     if(numero >= minimo && numero <= maximo)
     {
-        return TRUE;
+        return 1;
     }
-    return FALSE;
+    return 0;
 }
 
 int isValidChar(char letra, char minimo, char maximo)
@@ -69,14 +69,14 @@ int isValidApellido (char* cadena)
 
 int isValidDni(char* cadena)
 {
-    int retorno=TRUE;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
+    int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
     int i;
     int contadorPunto=0;
     for(i=0;cadena[i]!='\0';i++)
     {
         if((cadena[i]<'0' || cadena[i]>'9') && (cadena[i]!='.'))
         {
-            retorno=FALSE;
+            retorno=0;
         }
         if (cadena[i]=='.')
         {
@@ -88,7 +88,7 @@ int isValidDni(char* cadena)
         }
         if ((cadena[1]=='.' && cadena[5]=='.') || (cadena[2]=='.' && cadena[6]=='.'))
         {
-            retorno=TRUE;
+            retorno=1;
         }
     }
     return retorno;
@@ -184,14 +184,14 @@ int isEmail(char* cadena)
 int isValidEmail(char* cadena)
 {
     int contador=0;
-    int retorno=TRUE;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
+    int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
     int i;
     for(i=0;cadena[i]!='\0';i++)
     {
         if((cadena[i]<'-' && cadena[i]!='+') || (cadena[i]>'9' && cadena[i]<'@') ||
            (cadena[i]>'Z' && cadena[i]!='_' && cadena[i]<'a')|| cadena[i]>'z')
         {
-            retorno=FALSE;
+            retorno=0;
             break;
         }
 

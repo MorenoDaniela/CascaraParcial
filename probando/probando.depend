@@ -8,14 +8,14 @@
 
 1558020388 c:\users\pc\desktop\workspace\probando\validaciones.h
 
-1558026092 source:c:\users\pc\desktop\workspace\probando\main.c
+1558028705 source:c:\users\pc\desktop\workspace\probando\main.c
 	<stdio.h>
 	<stdlib.h>
 	"funciones.h"
 
 1558020388 c:\users\pc\desktop\workspace\probando\funciones.h
 
-1558020387 source:c:\users\pc\desktop\workspace\probando\validaciones.c
+1558027703 source:c:\users\pc\desktop\workspace\probando\validaciones.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
