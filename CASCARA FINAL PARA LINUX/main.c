@@ -3,58 +3,68 @@
 #include <string.h>
 #include <stdio_ext.h> //INCLUIR ENTIDADES NO OLVIDAR
 
-#include "fantasma.h"
+#include "orquesta.h"
+
+#include "musico.h"
+
+#include "instrumento.h"
+
+//#include "fantasma.h"
 #include "funciones.h"
 
 #define TRIES 3
-#define MAX_ESTRUCTURAUNO 10
-#define MAX_ESTRUCTURADOS 10
-#define MAX_ESTRUCTURATRES 10
-#define MAX_ESTRUCTURACUATRO 10
+#define MAX_ORQUESTA 50
+#define MAX_MUSICO 1000
+#define MAX_INSTRUMENTO 20
+//#define MAX_ESTRUCTURACUATRO 10
 
 int main()
 {
-    Autor STRUCT_UNO [MAX_ESTRUCTURAUNO];//MODIFICAR ACA TODO
-    Libro STRUCT_DOS [MAX_ESTRUCTURADOS];//
-    Socio STRUCT_TRES[MAX_ESTRUCTURATRES];//
-    Prestamo STRUCT_CUATRO[MAX_ESTRUCTURACUATRO];//
+
+    Orquesta orquestas [MAX_ORQUESTA];//MODIFICAR ACA TODO
+    Musico musicos [MAX_MUSICO];//
+    Instrumento instrumentos[MAX_INSTRUMENTO];//
+    //Prestamo STRUCT_CUATRO[MAX_ESTRUCTURACUATRO];//
 
     //menu principal
     int opcion;
     //flagspara menus
-    int flagUno=0;
-    int flagDos=0;
-    int flagTres=0;
-    int flagCuatro=0;
+    int flagOrquesta=0;
+    int flagMusico=0;
+    int flagInstrumento=0;
+    //int flagCuatro=0;
     //submenus
-    int opcionUno;
-    int opcionDos;
-    int opcionTres;
-    int opcionCuatro;
+    int opcionOrquesta;
+    int opcionMusico;
+    int opcionInstrumento;
+    //int opcionCuatro;
     //ids de 4 struct
-    int idUno=0;
-    int idDos=0;
-    int idTres=0;
-    int idCuatro=0;
+    int idOrquesta=0;
+    int idMusico=0;
+    int idInstrumento=0;
+    //int idCuatro=0;
 
+
+    orquesta_initStruct(orquestas,MAX_ORQUESTA);
+
+    musicos_initStruct(musicos,MAX_MUSICO);
+
+    instrumento_initStruct(instrumentos,MAX_INSTRUMENTO);
+
+    //cuatro_initStruct(STRUCT_CUATRO,MAX_ESTRUCTURACUATRO);
     /*
-    uno_initStruct(STRUCT_UNO,MAX_ESTRUCTURAUNO);
-    dos_initStruct(STRUCT_DOS,MAX_ESTRUCTURADOS);
-    tres_initStruct(STRUCT_TRES,MAX_ESTRUCTURATRES);
-    cuatro_initStruct(STRUCT_CUATRO,MAX_ESTRUCTURACUATRO);
-    /*
-    harcodearSTRUCT_UNO(STRUCT_UNO,MAX_ESTRUCTURAUNO);
-    harcodearSTRUCT_DOS(STRUCT_DOS,MAX_ESTRUCTURADOS);
-    harcodearSTRUCT_TRES(STRUCT_TRES,MAX_ESTRUCTURATRES);
+    harcodearorquestas(orquestas,MAX_ORQUESTA);
+    harcodearmusicos(musicos,MAX_MUSICO);
+    harcodearinstrumentos(instrumentos,MAX_INSTRUMENTO);
     harcodearSTRUCT_CUATRO(STRUCT_CUATRO,MAX_ESTRUCTURACUATRO);
-    flagUno=1;
-    flagDos=1;
-    flagTres=1;
+    flagOrquesta=1;
+    flagMusico=1;
+    flagInstrumento=1;
     flagCuatro=1;*/
 
-    while(opcion!=5)
+    while(opcion!=4)
     {
-        getInt("\n**MENU**\n1-STRUCT_UNO.\n2-STRUCT_DOS.\n3-STRUCT_TRES.\n4-STRUCT_CUATRO.\n5-Salir.\n","\nError, opcion invalida.\n",1,5,TRIES,&opcion);
+        getInt("\n**TEATRO**\n1-Orquestas.\n2-Musicos.\n3-Instrumentos.\n\n4-Salir.\n","\nError, opcion invalida.\n",1,4,TRIES,&opcion);
         system("clear");
         //system("cls");//
         switch(opcion)
@@ -62,163 +72,121 @@ int main()
         case 1:
             do
             {
-                getInt("\n STRUCT_UNO.\n1-Alta.\n2-Modificar.\n3-Baja.\n4-Listar.\n5-Salir.\n","Error, opcion incorrecta.\n",1,5,TRIES,&opcionUno);
+                getInt("\n Orquestas.\n1-Alta.\n2-Baja.\n3-Listar.\n4-Salir.\n","Error, opcion incorrecta.\n",1,4,TRIES,&opcionOrquesta);
                 system("clear");
                 __fpurge(stdin);
                 //system("cls");
                 //fflush(stdin);
-                switch (opcionUno)
+                switch (opcionOrquesta)
                 {
                 case 1:
-                    if (uno_alta(STRUCT_UNO,&idUno,MAX_ESTRUCTURAUNO)==0)
+                    if (orquesta_alta(orquestas,&idOrquesta,MAX_ORQUESTA)==0)
                     {
-                        flagUno++;
+                        flagOrquesta++;
                     }
                     break;
                 case 2:
-                    if (flagUno>0)
+                    if(flagOrquesta>0)
                     {
-                        uno_modificar(STRUCT_UNO,MAX_ESTRUCTURAUNO);
-                    }else
-                        printf("\nNo se puede modificar sin dar de alta.\n");
-                    break;
-                case 3:
-                    if(flagUno>0)
-                    {
-                        uno_baja(STRUCT_UNO,MAX_ESTRUCTURAUNO);
+                        orquesta_baja(orquestas,MAX_ORQUESTA);
                     }else
                         printf("\nNo se puede dar de baja sin dar de alta.\n");
                     break;
-                case 4:
-                    if (flagUno>0)
+                case 3:
+                    if (flagOrquesta>0)
                     {
-                        uno_ordenarDobleCadena(STRUCT_UNO,MAX_ESTRUCTURAUNO);
-                        uno_print(STRUCT_UNO,MAX_ESTRUCTURAUNO);
+                        //orquesta_ordenarDobleCadena(orquestas,MAX_ORQUESTA);
+                        orquesta_print(orquestas,MAX_ORQUESTA);
                     }
                     else
                         printf("\nNo hay lista.\n");
                     break;
-                case 5:
+                case 4:
                     break;
                 }
-            }while (opcionUno!=5);//fin uno cambiar si opciones son menos, mirar getint
+            }while (opcionOrquesta!=4);//fin orquesta cambiar si opciones son menos, mirar getint
             break;
         case 2:
             do
             {
-                getInt("\n STRUCT_DOS.\n1-Alta.\n2-Modificar.\n3-Baja.\n4-Listar.\n5-Salir.\n","Error, opcion incorrecta.\n",1,5,TRIES,&opcionDos);
+                getInt("\n Musicos.\n1-Alta.\n2-Modificar.\n3-Baja.\n4-Listar.\n5-Salir.\n","Error, opcion incorrecta.\n",1,5,TRIES,&opcionMusico);
                 system("clear");
                 __fpurge(stdin);
                 //system("cls");
-                switch (opcionDos)
+                switch (opcionMusico)
                 {
                 case 1:
-                    if(dos_alta(STRUCT_DOS,STRUCT_UNO,&idDos,MAX_ESTRUCTURAUNO,MAX_ESTRUCTURATRES)==0)
+                    if(musicos_alta(musicos,orquestas,instrumentos,&idMusico,MAX_MUSICO,MAX_ORQUESTA,MAX_INSTRUMENTO)==0)
                     {
-                        flagDos++;
+                    //int musico_alta(Musico* arrayMusico, Orquesta* arrayOrquesta,Instrumento* arrayInstrumento,int *id,int limiteMusico,int limiteOrquesta, int limiteInstrumento)
+                    //int musico_alta(Musico* arrayMusicos, Orquesta* arrayOrquesta, int* id, int limite);
+                        flagMusico++;
                     }
                     break;
                 case 2:
-                    if (flagDos>0 && flagUno>0)
+                    if (flagMusico>0 && flagOrquesta>0 && flagInstrumento>0)
                     {
-                        dos_print(STRUCT_DOS,MAX_ESTRUCTURADOS);
-                        dos_modificar(STRUCT_DOS,STRUCT_UNO,MAX_ESTRUCTURAUNO,MAX_ESTRUCTURADOS);
+                        musicos_print(musicos,MAX_MUSICO);
+                        musicos_modificar(musicos,orquestas,MAX_ORQUESTA,MAX_MUSICO);
                     }else
                         printf("\nNo se puede modificar sin dar de alta.\n");
                     break;
                 case 3:
-                    if (flagDos>0 && flagUno>0)
+                    if (flagMusico>0 && flagOrquesta>0 && flagInstrumento>0)
                     {
-                        dos_baja(STRUCT_DOS,MAX_ESTRUCTURADOS);
+                        musicos_baja(musicos,MAX_MUSICO);
                     }else
                         printf("\nNo se puede dar de baja sin dar de alta.\n");
                     break;
                 case 4:
-                    if (flagDos>0 && flagUno>0)
+                    if (flagMusico>0 && flagOrquesta>0 && flagInstrumento>0)
                     {
-                        dos_ordenarTitulo(STRUCT_DOS,MAX_ESTRUCTURADOS);
-                        dos_print(STRUCT_DOS,MAX_ESTRUCTURADOS);
+                        //musico_ordenarTitulo(musicos,MAX_MUSICO);
+                        musicos_print(musicos,MAX_MUSICO);
                     }else
                         printf("\nNo hay lista.\n");
                     break;
                 case 5:
                     break;
                 }
-            }while (opcionDos!=5);//fin dos cambiar si opciones son menos, mirar getint
+            }while (opcionMusico!=5);//fin musico cambiar si opciones son menos, mirar getint
             break;
         case 3:
             do
             {
-                getInt("\n STRUCT_TRES.\n1-Alta.\n2-Modificar.\n3-Baja.\n4-Listar.\n5-Salir.\n","Error, opcion incorrecta.\n",1,5,TRIES,&opcionTres);
+                getInt("\n instrumentos.\n1-Alta.\n2-Baja.\n3-Listar.\n4-Salir.\n","Error, opcion incorrecta.\n",1,4,TRIES,&opcionInstrumento);
                 system("clear");
                 __fpurge(stdin);
                 //system("cls");
-                switch (opcionTres)
+                switch (opcionInstrumento)
                 {
                 case 1:
-                    if(tres_alta(STRUCT_TRES,&idTres,MAX_ESTRUCTURATRES)==0)
+                    if(instrumento_alta(instrumentos,&idInstrumento,MAX_INSTRUMENTO)==0)
                     {
-                        flagTres++;
+                        flagInstrumento++;
                     }
                     break;
                 case 2:
-                    if (flagTres>0)
+                    if (flagInstrumento>0)
                     {
-                        tres_print(STRUCT_TRES,MAX_ESTRUCTURATRES);
-                        tres_modificar(STRUCT_TRES,MAX_ESTRUCTURATRES);
-                    }else
-                        printf("\nNo se puede modificar sin dar de alta.\n");
-                    break;
-                case 3:
-                    if (flagTres>0)
-                    {
-                        tres_baja(STRUCT_TRES,MAX_ESTRUCTURATRES);
+                        instrumento_baja(instrumentos,MAX_INSTRUMENTO);
                     }else
                         printf("\nNo se puede dar de baja sin dar de alta.\n");
                     break;
-                case 4:
-                    if (flagTres>0)
+                case 3:
+                    if (flagInstrumento>0)
                     {
-                        tres_ordenarDobleCadena(STRUCT_TRES,MAX_ESTRUCTURATRES);
-                        tres_print(STRUCT_TRES,MAX_ESTRUCTURATRES);
+                        //instrumento_ordenarDobleCadena(instrumentos,MAX_INSTRUMENTO);
+                        instrumento_print(instrumentos,MAX_INSTRUMENTO);
                     }else
                         printf("\nNo hay lista.\n");
                     break;
                 case 5:
                     break;
                 }
-            }while (opcionTres!=5);//fin tres cambiar si opciones son menos, mirar getint
+            }while (opcionInstrumento!=4);//fin instrumento cambiar si opciones son menos, mirar getint
             break;
         case 4:
-            do
-            {
-                getInt("\n STRUCT_CUATRO.\n1-Alta.\n2-Listar.\n3-Salir.\n","Error, opcion incorrecta.\n",1,3,TRIES,&opcionCuatro);
-                system("clear");
-                __fpurge(stdin);
-                //system("cls");
-                //fflush(stdin);
-                switch (opcionCuatro)
-                {
-                case 1:
-                    if (cuatro_alta(STRUCT_CUATRO,STRUCT_DOS,STRUCT_TRES,&idCuatro,MAX_ESTRUCTURACUATRO,MAX_ESTRUCTURADOS,MAX_ESTRUCTURATRES)==0)
-                    {
-                        flagCuatro++;
-                    }
-                    break;
-                case 2:
-                    if (flagCuatro>0 && flagUno>0 && flagDos>0)
-                    {
-                        //cuatro_ordenarDobleCadena(STRUCT_CUATRO,MAX_ESTRUCTURACUATRO);
-                        cuatro_print(STRUCT_CUATRO,MAX_ESTRUCTURACUATRO);
-                    }else
-                        printf("\nNo hay lista.\n");
-                    break;
-                case 3:
-                    break;
-                }
-            }while (opcionCuatro!=3);//fin cuatro cambiar si opciones son menos, mirar getint
-            break;
-        case 5:
             break;
         }
     }

@@ -1,6 +1,6 @@
 #ifndef FANTASMA_H_INCLUDED
 #define FANTASMA_H_INCLUDED
-
+/*
 typedef struct
 {
     int idFantasma;
@@ -21,5 +21,5 @@ int ocho_baja(Fantasma* arrayFantasma,int limite);
 int ocho_modificar(Fantasma* arrayFantasma,int limite);
 int ocho_ordenarDobleCadena(Fantasma* arrayA,int limite);
 void harcodearFantasmas(Fantasma* arrayA, int limite);
-
+*/
 #endif // FANTASMA_H_INCLUDED

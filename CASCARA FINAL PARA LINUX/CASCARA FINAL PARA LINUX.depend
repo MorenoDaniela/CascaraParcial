@@ -1,0 +1,71 @@
+# depslib dependency file v1.0
+1558049215 source:/home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/fantasma.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"fantasma.h"
+	<stdio_ext.h>
+	"funciones.h"
+
+1558048341 /home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/fantasma.h
+
+1558042661 /home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/funciones.h
+
+1558042661 source:/home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/funciones.c
+	"validaciones.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdio_ext.h>
+
+1558042661 /home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/validaciones.h
+
+1558049478 source:/home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/instrumento.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"instrumento.h"
+	<stdio_ext.h>
+	"funciones.h"
+
+1558046814 /home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/instrumento.h
+
+1558051566 source:/home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdio_ext.h>
+	"orquesta.h"
+	"musico.h"
+	"instrumento.h"
+	"funciones.h"
+
+1558051266 /home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/orquesta.h
+
+1558051488 /home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/musico.h
+	"instrumento.h"
+	"orquesta.h"
+
+1558051488 source:/home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/musico.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"musico.h"
+	<stdio_ext.h>
+	"funciones.h"
+
+1558050697 source:/home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/orquesta.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"orquesta.h"
+	<stdio_ext.h>
+	"funciones.h"
+
+1558042661 source:/home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdio_ext.h>
+	"validaciones.h"
+

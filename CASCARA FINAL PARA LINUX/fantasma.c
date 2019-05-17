@@ -1,24 +1,24 @@
 #ifndef FANTASMA_C_INCLUDED
 #define FANTASMA_C_INCLUDED
-
+/*
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include "fantasma.h"
 #include <stdio_ext.h>//para linux
 
-#include "funciones.h
+#include "funciones.h"
 
 #define TRIES 3
 
-/** \brief  To indicate that all position in the array are empty,
+* \brief  To indicate that all position in the array are empty,
 *          this function put the flag (isEmpty) in TRUE in all
 *          position of the array
 * \param array fantasma Array of fantasma
 * \param limite int Array length
 * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
 *
-*/
+
 int ocho_initStruct(Fantasma* arrayFantasma, int limite)
 {
     int retorno = -1;
@@ -33,13 +33,13 @@ int ocho_initStruct(Fantasma* arrayFantasma, int limite)
     }
     return retorno;
 }
-/** \brief Busca el primer lugar vacio en un array
+ \brief Busca el primer lugar vacio en un array
 * \param array fantasma Array de fantasma
 * \param limite int Tamaño del array
 * \param resultado int* Puntero a la posicion del array donde se encuentra el valor buscado
 * \return int Return (-1) si no encuentra un lugar vacio o Error [Invalid length or NULL pointer] - (0) si encuentra una posicion vacia
 *
-*/
+
 int ocho_findEmpty (Fantasma* arrayFantasma,int limite, int* resultado)
 {
     int retorno=-1;
@@ -59,13 +59,13 @@ int ocho_findEmpty (Fantasma* arrayFantasma,int limite, int* resultado)
     }
     return retorno;
 }
-/** \brief Solicita los datos para completar la primer posicion vacia de un array
+ \brief Solicita los datos para completar la primer posicion vacia de un array
 * \param array fantasma Array de fantasma
 * \param limite int Tamaño del array
 * \param ID int* Puntero al ID unico que se va a asignar al nuevo elemento
 * \return int Return (-1) si Error [largo no valido o NULL pointer o no hay posiciones vacias] - (0) si se agrega un nuevo elemento exitosamente
 *
-*/
+
 int ocho_alta(Fantasma* arrayFantasma,int *id, int limite)
 {
     int retorno=-1;
@@ -95,12 +95,12 @@ int ocho_alta(Fantasma* arrayFantasma,int *id, int limite)
     }
     return retorno;
 }
-/** \brief Lista los elementos de un array
+ \brief Lista los elementos de un array
 * \param array fantasma Array de fantasma
 * \param limite int Tamaño del array
 * \return void
 *
-*/
+
 void ocho_print(Fantasma* arrayFantasma, int limite)
 {
     int i;
@@ -117,12 +117,12 @@ void ocho_print(Fantasma* arrayFantasma, int limite)
         }
     }
 }
-/** \brief Borra un elemento del array por ID
+ \brief Borra un elemento del array por ID
 * \param array fantasma Array de fantasma
-* \param size int Tamaño del array
+* \param limite int Tamaño del array
 * \return int Return (-1) si Error [largo no valido o NULL pointer o no encuentra elementos con el valor buscado] - (0) si se elimina el elemento exitosamente
 *
-*/
+*
 int ocho_baja(Fantasma* arrayFantasma,int limite)
 {
     int posicion;
@@ -169,13 +169,14 @@ int ocho_getId(char*msj,Fantasma* arrayFantasma,int limite)
     }
     return retorno;
 }
-/** \brief Busca un ID en un array y devuelve la posicion en que se encuentra
+ \brief Busca un ID en un array y devuelve la posicion en que se encuentra
 * \param array fantasma Array de fantasma
 * \param limite int Tamaño del array
 * \param idEncontrado int* Puntero a la posicion del array donde se encuentra el valor buscado
 * \return int Return (-1) si no encuentra el valor buscado o Error [Invalid length or NULL pointer] - (0) si encuentra el valor buscado
 *
-*/
+*
+
 int ocho_findById(char* msj,Fantasma* arrayFantasma,int* idEncontrado, int limite)
 {
     int i;
@@ -202,24 +203,25 @@ int ocho_findById(char* msj,Fantasma* arrayFantasma,int* idEncontrado, int limit
     }
     return retorno;
 }
-/** \brief Busca un int en un array y devuelve la posicion en que se encuentra
+\brief Busca un int en un array y devuelve la posicion en que se encuentra
 * \param array fantasma Array de fantasma
-* \param size int Tamaño del array
+* \param limite int Tamaño del array
 * \param posicion int* Puntero a la posicion del array donde se encuentra el valor buscado
 * \return int Return (-1) si no encuentra el valor buscado o Error [Invalid length or NULL pointer] - (0) si encuentra el valor buscado
 *
 */
+/*
 int ocho_buscarInt(Fantasma* arrayFantasma, int limite, int valorBuscado, int* posicion)                    //cambiar fantasma
 {
     int retorno=-1;
     int i;
-    if(arrayFantasma!= NULL && size>=0)
+    if(arrayFantasma!= NULL && limite>=0)
     {
         for(i=0;i<limite;i++)
         {
             if(arrayFantasma[i].isEmpty==1)
                 continue;
-            else if(array[i].varInt==valorBuscado)                                                   //cambiar campo varInt
+            else if(arrayFantasma[i].varInt==valorBuscado)                                                   //cambiar campo varInt
             {
                 retorno=0;
                 *posicion=i;
@@ -229,18 +231,21 @@ int ocho_buscarInt(Fantasma* arrayFantasma, int limite, int valorBuscado, int* p
     }
     return retorno;
 }
+*/
 /** \brief Busca un string en un array
 * \param array fantasma Array de fantasma
-* \param size int Tamaño del array
+* \param limite int Tamaño del array
 * \param posicion int* Puntero a la posicion del array donde se encuentra el valor buscado
 * \return int Return (-1) si no encuentra el valor buscado o Error [Invalid length or NULL pointer] - (0) si encuentra el valor buscado
 *
 */
+
+/*
 int ocho_buscarString(Fantasma* arrayFantasma, int limite, char* valorBuscado, int* indice)                    //cambiar fantasma
 {
     int retorno=-1;
     int i;
-    if(arrayFantasma!=NULL && size>=0)
+    if(arrayFantasma!=NULL && limite>=0)
     {
         for(i=0;i<limite;i++)
         {
@@ -256,21 +261,23 @@ int ocho_buscarString(Fantasma* arrayFantasma, int limite, char* valorBuscado, i
     }
     return retorno;
 }
-/** \brief Busca un elemento por ID y modifica sus campos
+
+
+ \brief Busca un elemento por ID y modifica sus campos
 * \param array fantasma Array de fantasma
 * \param limite int Tamaño del array
 * \return int Return (-1) si Error [largo no valido o NULL pointer o no encuentra elementos con el valor buscado] - (0) si se modifica el elemento exitosamente
 *
-*/
+
 int ocho_modificar(Fantasma* arrayFantasma,int limite)
 {
     int retorno=-1;
     int posicion;
     int opcion;
-    /*char auxNombre;
+    char auxNombre;
     char auxApellido;
     char auxDni;
-    int auxEdad;*/
+    int auxEdad;
     if (arrayFantasma!=NULL && limite>0)
     {
         ocho_print(arrayFantasma,limite);
@@ -290,7 +297,7 @@ int ocho_modificar(Fantasma* arrayFantasma,int limite)
                     case 1:
                     if (getName("Ingrese nuevo nombre: \n","Nombre no valido.\n",3,31,TRIES,arrayFantasma[posicion].nombre)==0)
                     {
-                        //strncpy(arrayFantasma[posicion].nombre,&auxNombre,sizeof(arrayFantasma[posicion].nombre));
+                        //strncpy(arrayFantasma[posicion].nombre,&auxNombre,limiteof(arrayFantasma[posicion].nombre));
                         printf ("Modificacion con exito.\n");
                     }else
                         {
@@ -300,7 +307,7 @@ int ocho_modificar(Fantasma* arrayFantasma,int limite)
                     case 2:
                     if (getApellido("Ingrese nuevo apellido: \n","Error, apellido no valido.\n",2,31,TRIES,arrayFantasma[posicion].apellido)==0)
                     {
-                        //strncpy(arrayFantasma[posicion].apellido,&auxApellido,sizeof(auxApellido));
+                        //strncpy(arrayFantasma[posicion].apellido,&auxApellido,limiteof(auxApellido));
                         printf ("Modificacion con exito.\n");
                     }else
                         {
@@ -317,13 +324,14 @@ int ocho_modificar(Fantasma* arrayFantasma,int limite)
     }
     return retorno;
 }
-/** \brief  Ordena una doble cadena de letras
+
+ \brief  Ordena una doble cadena de letras
  *
  * \param Puntero al array fantasma
  * \param limite del array
  * \return retorna -1 si puntero nulo o limite menor a 0, retorna 0 si salio todo bien
  *
- */
+
 int ocho_ordenarDobleCadena(Fantasma* arrayFantasma,int limite)
 {
     int i;
@@ -371,7 +379,7 @@ int ocho_ordenarTitulo(Fantasma* arrayFantasma,int limite)//usar para ordenar un
             {
                 continue;
             }
-                if (strncmp(arrayFantasma[i].titulo,arrayFantasma[i+1].titulo,51)>0)
+                if (strncmp(arrayFantasma[i].nombre,arrayFantasma[i+1].nombre,51)>0)
                 {
                     buffer = arrayFantasma[i];
                     arrayFantasma[i]= arrayFantasma[i+1];
@@ -401,5 +409,6 @@ void harcodearFantasmas(Fantasma* arrayFantasma, int limite)
     arrayFantasma[3].isEmpty=0;
     arrayFantasma[3].idFantasma=2;
 }
+*/
 
 #endif // FANTASMA_C_INCLUDED

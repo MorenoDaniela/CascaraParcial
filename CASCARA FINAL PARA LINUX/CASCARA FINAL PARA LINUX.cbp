@@ -39,9 +39,21 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="funciones.h" />
+		<Unit filename="instrumento.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="instrumento.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="musico.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="musico.h" />
+		<Unit filename="orquesta.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="orquesta.h" />
 		<Unit filename="validaciones.c">
 			<Option compilerVar="CC" />
 		</Unit>
