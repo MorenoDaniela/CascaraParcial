@@ -20,7 +20,7 @@
 
 1558042661 /home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/validaciones.h
 
-1558053283 source:/home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/instrumento.c
+1558054211 source:/home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/instrumento.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -46,7 +46,7 @@
 	"instrumento.h"
 	"orquesta.h"
 
-1558052619 source:/home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/musico.c
+1558054478 source:/home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/musico.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

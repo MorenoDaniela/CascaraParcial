@@ -201,7 +201,7 @@ void harcodearInstrumento(Instrumento* arrayInstrumento, int limite)
     arrayInstrumento[1].idInstrumento=2;
 
     strcpy(arrayInstrumento[2].nombre,"Bateria");
-    arrayInstrumento[2].tipo=3;
+    arrayInstrumento[2].tipo=4;
     arrayInstrumento[2].isEmpty=0;
     arrayInstrumento[2].idInstrumento=1;
 }

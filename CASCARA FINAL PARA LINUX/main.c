@@ -51,15 +51,9 @@ int main()
 
     instrumento_initStruct(instrumentos,MAX_INSTRUMENTO);
 
-    //cuatro_initStruct(STRUCT_CUATRO,MAX_ESTRUCTURACUATRO);
-
     harcodearOrquestas(orquestas,MAX_ORQUESTA);
-
     harcodearMusicos(musicos,MAX_MUSICO);
     harcodearInstrumento(instrumentos,MAX_INSTRUMENTO);
-
-
-    //harcodearSTRUCT_CUATRO(STRUCT_CUATRO,MAX_ESTRUCTURACUATRO);
 
     flagOrquesta=1;
     flagMusico=1;
@@ -122,15 +116,13 @@ int main()
                 case 1:
                     if(musicos_alta(musicos,orquestas,instrumentos,&idMusico,MAX_MUSICO,MAX_ORQUESTA,MAX_INSTRUMENTO)==0)
                     {
-                    //int musico_alta(Musico* arrayMusico, Orquesta* arrayOrquesta,Instrumento* arrayInstrumento,int *id,int limiteMusico,int limiteOrquesta, int limiteInstrumento)
-                    //int musico_alta(Musico* arrayMusicos, Orquesta* arrayOrquesta, int* id, int limite);
                         flagMusico++;
                     }
                     break;
                 case 2:
                     if (flagMusico>0 && flagOrquesta>0 && flagInstrumento>0)
                     {
-                        musicos_print(musicos,MAX_MUSICO);
+                        //musicos_print(musicos,MAX_MUSICO);
                         musicos_modificar(musicos,orquestas,MAX_ORQUESTA,MAX_MUSICO);
                     }else
                         printf("\nNo se puede modificar sin dar de alta.\n");

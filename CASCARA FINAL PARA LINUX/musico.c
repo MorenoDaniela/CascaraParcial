@@ -140,8 +140,8 @@ void musicos_print(Musico* arrayMusico, int limite)
             printf ("\nApellido del musico: %s ",arrayMusico[i].apellido);
             printf ("\nTipo de instrumento : %d",arrayMusico[i].idInstrumento);
             printf ("\nId del musico: %d ",arrayMusico[i].idMusico);
-            printf ("\nPosicion: %d ",i);
-            printf ("\nEstado : %d \n",arrayMusico[i].isEmpty);
+            //printf ("\nPosicion: %d ",i);
+            //printf ("\nEstado : %d \n",arrayMusico[i].isEmpty);
         }
     }
 }
@@ -192,7 +192,7 @@ int musicos_modificar(Musico* arrayMusico,Orquesta* arrayOrquesta,int limiteOrqu
         musicos_print(arrayMusico,limiteMusico);
         //musico_findById("Ingrese el id del autor a modificar",arrayMusico,&posicion,limite);
         //posicion=musico_getId(msj,arrayMusico,limite);
-        if (musicos_findById("Ingrese el id del musico a modificar: \n",arrayMusico,&posicion,limiteMusico)==0)
+        if (musicos_findById("\NIngrese el id del musico a modificar: \n",arrayMusico,&posicion,limiteMusico)==0)
         {
             while (opcion!=3)
             {
@@ -204,13 +204,13 @@ int musicos_modificar(Musico* arrayMusico,Orquesta* arrayOrquesta,int limiteOrqu
                 switch(opcion)
                 {
                     case 1:
-                    if (getInt("Ingrese nuevo edad: \n","Edad no valido.\n",18,200,TRIES,&auxEdad)==0)
+                    if (getInt("\NIngrese nuevo edad: \n","Edad no valido.\n",18,200,TRIES,&auxEdad)==0)
                     {
                         arrayMusico[posicion].edad=auxEdad;
                         printf ("Modificacion con exito.\n");
                     }else
                         {
-                            printf ("Modificacion sin exito.\n");
+                            printf ("\NModificacion sin exito.\n");
                         }
                     break;
                     case 2:
