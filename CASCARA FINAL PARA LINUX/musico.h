@@ -24,7 +24,7 @@ int musicos_alta(Musico* arrayMusico, Orquesta* arrayOrquesta,Instrumento* array
 //int musico_alta(Musico* arrayMusico, Orquesta* arrayOrquesta, int* id, int limite);
 void musicos_print(Musico* arrayMusico, int limite);
 int musicos_findById(char* msj,Musico* arrayMusico,int* idEncontrado, int limite);
-//void harcodearMusicos(Musico* arrayA, int limite);
+void harcodearMusicos(Musico* arrayA, int limite);
 int musicos_modificar(Musico* arrayMusico,Orquesta* arrayOrquesta,int limiteOrquesta, int limiteMusico);
 
 #endif // MUSICO_H_INCLUDED

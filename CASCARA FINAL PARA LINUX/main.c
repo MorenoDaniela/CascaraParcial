@@ -52,15 +52,19 @@ int main()
     instrumento_initStruct(instrumentos,MAX_INSTRUMENTO);
 
     //cuatro_initStruct(STRUCT_CUATRO,MAX_ESTRUCTURACUATRO);
-    /*
-    harcodearorquestas(orquestas,MAX_ORQUESTA);
-    harcodearmusicos(musicos,MAX_MUSICO);
-    harcodearinstrumentos(instrumentos,MAX_INSTRUMENTO);
-    harcodearSTRUCT_CUATRO(STRUCT_CUATRO,MAX_ESTRUCTURACUATRO);
+
+    harcodearOrquestas(orquestas,MAX_ORQUESTA);
+
+    harcodearMusicos(musicos,MAX_MUSICO);
+    harcodearInstrumento(instrumentos,MAX_INSTRUMENTO);
+
+
+    //harcodearSTRUCT_CUATRO(STRUCT_CUATRO,MAX_ESTRUCTURACUATRO);
+
     flagOrquesta=1;
     flagMusico=1;
     flagInstrumento=1;
-    flagCuatro=1;*/
+    //flagCuatro=1;
 
     while(opcion!=4)
     {
@@ -72,7 +76,7 @@ int main()
         case 1:
             do
             {
-                getInt("\n Orquestas.\n1-Alta.\n2-Baja.\n3-Listar.\n4-Salir.\n","Error, opcion incorrecta.\n",1,4,TRIES,&opcionOrquesta);
+                getInt("\n ORQUESTAS.\n1-Alta.\n2-Baja.\n3-Listar.\n4-Salir.\n","Error, opcion incorrecta.\n",1,4,TRIES,&opcionOrquesta);
                 system("clear");
                 __fpurge(stdin);
                 //system("cls");
@@ -109,7 +113,7 @@ int main()
         case 2:
             do
             {
-                getInt("\n Musicos.\n1-Alta.\n2-Modificar.\n3-Baja.\n4-Listar.\n5-Salir.\n","Error, opcion incorrecta.\n",1,5,TRIES,&opcionMusico);
+                getInt("\n MUSICOS.\n1-Alta.\n2-Modificar.\n3-Baja.\n4-Listar.\n5-Salir.\n","Error, opcion incorrecta.\n",1,5,TRIES,&opcionMusico);
                 system("clear");
                 __fpurge(stdin);
                 //system("cls");
@@ -154,7 +158,7 @@ int main()
         case 3:
             do
             {
-                getInt("\n instrumentos.\n1-Alta.\n2-Baja.\n3-Listar.\n4-Salir.\n","Error, opcion incorrecta.\n",1,4,TRIES,&opcionInstrumento);
+                getInt("\nINSTRUMENTOS.\n1-Alta.\n2-Baja.\n3-Listar.\n4-Salir.\n","Error, opcion incorrecta.\n",1,4,TRIES,&opcionInstrumento);
                 system("clear");
                 __fpurge(stdin);
                 //system("cls");

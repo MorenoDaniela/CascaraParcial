@@ -262,4 +262,32 @@ int musicos_findById(char* msj,Musico* arrayMusico,int* idEncontrado, int limite
     return retorno;
 }
 
+void harcodearMusicos(Musico* arrayMusico, int limite)
+{
+    strcpy(arrayMusico[0].nombre,"Daniel");
+    strcpy(arrayMusico[0].apellido,"Moreno");
+    arrayMusico[0].edad=25;
+    arrayMusico[0].idInstrumento=0;
+    arrayMusico[0].idOrquesta=1;
+    arrayMusico[0].isEmpty=0;
+    arrayMusico[0].idMusico=0;
+
+    strcpy(arrayMusico[1].nombre,"Marta");
+    strcpy(arrayMusico[1].apellido,"Suarez");
+    arrayMusico[1].edad=30;
+    arrayMusico[1].idInstrumento=1;
+    arrayMusico[1].idOrquesta=2;
+    arrayMusico[1].isEmpty=0;
+    arrayMusico[1].idMusico=1;
+
+    strcpy(arrayMusico[2].nombre,"Jose");
+    strcpy(arrayMusico[2].apellido,"Pepe");
+    arrayMusico[2].edad=55;
+    arrayMusico[2].idInstrumento=2;
+    arrayMusico[2].idOrquesta=0;
+    arrayMusico[2].isEmpty=0;
+    arrayMusico[2].idMusico=2;
+
+
+}
 #endif // MUSICO_C_INCLUDED

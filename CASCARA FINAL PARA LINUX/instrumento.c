@@ -11,6 +11,10 @@
 #include "funciones.h"
 
 #define TRIES 3
+#define CUERDAS 1
+#define VIENTO_MADERA 2
+#define VIENTO_METAL 3
+#define PERCUSION 4
 
 /** \brief  To indicate that all position in the array are empty,
 *          this function put the flag (isEmpty) in TRUE in all
@@ -81,13 +85,14 @@ int instrumento_alta(Instrumento* arrayInstrumento,int *id, int limite)
             if (getName("\nIngrese nombre del instrumento: \n","Error, nombre no valido.\n",3,30,TRIES,arrayInstrumento[lugarVacio].nombre)==0 &&
                 getInt("\nIngrese tipo de instrumento: \n1-Cuerdas.\n"
                 "2-Viento-Madera.\n"
-                "3-Viento-metal.\n 4-Percusion\n","Error, tipo no valido.\n",3,30,TRIES,&auxTipo)==0)
+                "3-Viento-metal.\n 4-Percusion\n","Error, tipo no valido.\n",1,4,TRIES,&auxTipo)==0)
             {
                arrayInstrumento[lugarVacio].idInstrumento=*id;
                 (*id)++;
                 arrayInstrumento[lugarVacio].tipo=auxTipo;
                arrayInstrumento[lugarVacio].isEmpty=0;
                printf("\nSe cargaron con exito los datos.\n");
+               //printf ("\nEl id es: %d \n",id);
                retorno=0;
             }else
                 {
@@ -95,7 +100,7 @@ int instrumento_alta(Instrumento* arrayInstrumento,int *id, int limite)
                 }
         }else
         {
-            printf("No hay espacio vacio.\n");
+            printf("\nNo hay espacio vacio.\n");
         }
     }
     return retorno;
@@ -117,8 +122,8 @@ void instrumento_print(Instrumento* arrayInstrumento, int limite)
             printf ("\nNombre del instrumento: %s ",arrayInstrumento[i].nombre);
             printf ("\nTipo del instrumento: %d ",arrayInstrumento[i].tipo);
             printf ("\nId del instrumento: %d ",arrayInstrumento[i].idInstrumento);
-            printf ("\nPosicion: %d ",i);
-            printf ("\nEstado : %d \n",arrayInstrumento[i].isEmpty);
+            //printf ("\nPosicion: %d ",i);
+            //printf ("\nEstado : %d \n",arrayInstrumento[i].isEmpty);
         }
     }
 }
@@ -181,6 +186,24 @@ int instrumento_findById(char* msj,Instrumento* arrayInstrumento,int* idEncontra
         }
     }
     return retorno;
+}
+
+void harcodearInstrumento(Instrumento* arrayInstrumento, int limite)
+{
+    strcpy(arrayInstrumento[0].nombre,"Guitarra");
+    arrayInstrumento[0].tipo=1;
+    arrayInstrumento[0].isEmpty=0;
+    arrayInstrumento[0].idInstrumento=1;
+
+    strcpy(arrayInstrumento[1].nombre,"Violin");
+    arrayInstrumento[1].tipo=2;
+    arrayInstrumento[1].isEmpty=0;
+    arrayInstrumento[1].idInstrumento=2;
+
+    strcpy(arrayInstrumento[2].nombre,"Bateria");
+    arrayInstrumento[2].tipo=3;
+    arrayInstrumento[2].isEmpty=0;
+    arrayInstrumento[2].idInstrumento=1;
 }
 
 #endif // INSTRUMENTO_C_INCLUDED

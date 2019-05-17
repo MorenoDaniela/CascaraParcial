@@ -20,7 +20,7 @@
 
 1558042661 /home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/validaciones.h
 
-1558049478 source:/home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/instrumento.c
+1558053283 source:/home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/instrumento.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -28,9 +28,9 @@
 	<stdio_ext.h>
 	"funciones.h"
 
-1558046814 /home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/instrumento.h
+1558052396 /home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/instrumento.h
 
-1558051566 source:/home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/main.c
+1558053263 source:/home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -42,11 +42,11 @@
 
 1558051266 /home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/orquesta.h
 
-1558051488 /home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/musico.h
+1558052396 /home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/musico.h
 	"instrumento.h"
 	"orquesta.h"
 
-1558051488 source:/home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/musico.c
+1558052619 source:/home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/musico.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -54,7 +54,7 @@
 	<stdio_ext.h>
 	"funciones.h"
 
-1558050697 source:/home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/orquesta.c
+1558053585 source:/home/alumno/DanielaMoreno/CascaraParcial/CASCARA FINAL PARA LINUX/orquesta.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

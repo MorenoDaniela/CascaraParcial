@@ -61,7 +61,7 @@ int orquesta_alta(Orquesta* arrayOrquesta,int *id, int limite)
             if (
                 getName("\nIngrese nombre de la orquesta: \n","Error, nombre no valido.\n",3,30,TRIES,arrayOrquesta[lugarVacio].nombre)==0 &&
                 getString("\nIngrese lugar: \n","Error, lugar no valido.\n",3,30,TRIES,arrayOrquesta[lugarVacio].lugar)==0 &&
-                getInt("Ingrese tipo de orquesta: 1-Sinfonica. 2-Filarmonica.3-Camara\n","Error, tipo de orquesta no valido\n",1,3,TRIES,&auxTipo)==0 )
+                getInt("Ingrese tipo de orquesta: \n1-Sinfonica. \n2-Filarmonica. \n3-Camara\n","Error, tipo de orquesta no valido\n",1,3,TRIES,&auxTipo)==0 )
             {
                arrayOrquesta[lugarVacio].idOrquesta=*id;
                 (*id)++;
@@ -93,8 +93,8 @@ void orquesta_print(Orquesta* arrayOrquesta, int limite)
             printf ("\nLugar de la orquesta: %s ",arrayOrquesta[i].lugar);
             printf ("\nTipo de orquesta: %d",arrayOrquesta[i].tipo);
             printf ("\nId de la orquesta: %d ",arrayOrquesta[i].idOrquesta);
-            printf ("\nPosicion: %d ",i);
-            printf ("\nEstado : %d \n",arrayOrquesta[i].isEmpty);
+            //printf ("\nPosicion: %d ",i);
+            //printf ("\nEstado : %d \n",arrayOrquesta[i].isEmpty);
         }
     }
 }
@@ -156,79 +156,24 @@ int orquesta_baja(Orquesta* arrayOrquesta,int limite)
 
 void harcodearOrquestas(Orquesta* arrayOrquesta, int limite)
 {
-    strcpy(arrayOrquesta[0].nombre,"BBB");
-    strcpy(arrayOrquesta[0].lugar,"DDD");
+    strcpy(arrayOrquesta[0].nombre,"OrquestaUno");
+    strcpy(arrayOrquesta[0].lugar,"Lomas 142");
     arrayOrquesta[0].isEmpty=0;
     arrayOrquesta[0].idOrquesta=1;
     arrayOrquesta[0].tipo=1;
 
-    strcpy(arrayOrquesta[1].nombre,"BBB");
-    strcpy(arrayOrquesta[1].lugar,"CCC");
+    strcpy(arrayOrquesta[1].nombre,"OrquestaDos");
+    strcpy(arrayOrquesta[1].lugar,"Guillon 254");
     arrayOrquesta[1].isEmpty=0;
     arrayOrquesta[1].idOrquesta=3;
     arrayOrquesta[0].tipo=3;
 
-    strcpy(arrayOrquesta[2].nombre,"CCC");
-    strcpy(arrayOrquesta[2].lugar,"BBB");
+    strcpy(arrayOrquesta[2].nombre,"OrquestaTres");
+    strcpy(arrayOrquesta[2].lugar,"Capital 254");
     arrayOrquesta[2].isEmpty=0;
     arrayOrquesta[2].idOrquesta=5;
     arrayOrquesta[0].tipo=2;
 }
 
-/*
-int musicos_modificar(Musico* arrayMusico,Orquesta* arrayOrquesta,int limiteOrquesta, int limiteMusico)
-{
-    int retorno=-1;
-    int posicion;
-    int opcion;
-    int idOrquesta;
-    int auxEdad;//
-    if (arrayMusico!=NULL && limiteMusico>0 && limiteOrquesta>0 && arrayOrquesta!=NULL)
-    {
-        musicos_print(arrayMusico,limiteMusico);
-        //musico_findById("Ingrese el id del autor a modificar",arrayMusico,&posicion,limite);
-        //posicion=musico_getId(msj,arrayMusico,limite);
-        if (musicos_findById("Ingrese el id del musico a modificar: \n",arrayMusico,&posicion,limiteMusico)==0)
-        {
-            while (opcion!=3)
-            {
-                getInt("\n1-Modificar edad.\n2-Modificar id de orquesta.\n3-Salir de modificacion.\n","Opcion no valida\n",1,3,TRIES,&opcion);
-                system("cls");//
-                //system("clear");
-                fflush(stdin);
-                //__fpurge(stdin);
-                switch(opcion)
-                {
-                    case 1:
-                    if (getInt("Ingrese nuevo edad: \n","Edad no valido.\n",18,200,TRIES,&auxEdad)==0)
-                    {
-                        arrayMusico[posicion].edad=auxEdad;
-                        printf ("Modificacion con exito.\n");
-                    }else
-                        {
-                            printf ("Modificacion sin exito.\n");
-                        }
-                    break;
-                    case 2:
-                    if (orquesta_findById("\nIngrese nuevo id del orquesta:\n",arrayOrquesta,&idOrquesta,limiteOrquesta)==0)
-                    {
-                        arrayMusico[posicion].idOrquesta=idOrquesta;
-                        //strncpy(arrayMusico[posicion].apellido,&auxApellido,sizeof(auxApellido));
-                        printf ("Modificacion con exito.\n");
-                    }else
-                        {
-                            printf ("Modificacion sin exito.\n");
-                        }
-                        break;
-                    case 3:
-                        break;
-                }//fin switch
-            }
-            retorno=0;//fin while
-        }else
-            printf("\nNo se encontro el id.\n");
-    }
-    return retorno;
-}*/
 
 #endif // ORQUESTA_C_INCLUDED
