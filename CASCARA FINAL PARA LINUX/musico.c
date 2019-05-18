@@ -9,7 +9,7 @@
 //#include "orquesta.h"
 //#include "instrumento.h"
 
-#include <stdio_ext.h>//para linux
+//#include <stdio_ext.h>//para linux
 
 
 #include "funciones.h"
@@ -51,7 +51,7 @@ int musicos_findEmpty (Musico* arrayMusico,int limite, int* resultado)
     int i;
     if (arrayMusico!=NULL && limite>=0 && resultado!=NULL)
     {
-        for (i=0;i<=limite;i++)
+        for (i=0;i<limite;i++)
         {
             if (arrayMusico[i].isEmpty==1)
             {
@@ -93,7 +93,7 @@ int musicos_alta(Musico* arrayMusico, Orquesta* arrayOrquesta,Instrumento* array
                 {
                     if(getName("\nIngrese nombre del musico: \n","Error, nombre no valido.\n",1,31,TRIES,arrayMusico[lugarVacio].nombre)==0 &&
                         getApellido("\nIngrese apellido: \n","Error, apellido no valido.\n",1,12,TRIES,arrayMusico[lugarVacio].apellido)==0 &&
-                        getInt("\nIngrese edad: \n","Error, edad no valido.\n",2000,2019,TRIES,&auxEdad)==0)
+                        getInt("\nIngrese edad: \n","Error, edad no valido.\n",18,200,TRIES,&auxEdad)==0)
                     {
                        arrayMusico[lugarVacio].idMusico=*id;
                        arrayMusico[lugarVacio].idOrquesta=idOrquesta;
@@ -128,6 +128,45 @@ int musicos_alta(Musico* arrayMusico, Orquesta* arrayOrquesta,Instrumento* array
 * \return void
 *
 */
+void musico_print(Musico* arrayMusico, int limiteMusico, Instrumento* arrayInstrumento, int limiteInstrumento)
+{
+    int i;
+    char buffer[20];
+    int auxPos;
+    for (i=0;i<limiteMusico;i++)
+    {
+        if (arrayMusico[i].isEmpty==0)
+        {
+            instrumento_buscarID(arrayInstrumento,limiteInstrumento,arrayInstrumento[i].idInstrumento,&auxPos);
+            switch (arrayInstrumento[auxPos].tipo)
+            {
+            case 1:
+                strncpy(buffer,"Cuerdas.",sizeof(buffer));
+                break;
+            case 2:
+                strncpy(buffer,"Viento-Madera.",sizeof(buffer));
+                break;
+            case 3:
+                strncpy(buffer,"Viento-Metal.",sizeof(buffer));
+                break;
+            case 4:
+                strncpy(buffer,"Percusion.",sizeof(buffer));
+                break;
+            }
+            printf ("\n********************************************");
+            printf ("\nNombre del musico: %s ",arrayMusico[i].nombre);
+            printf ("\nApellido del musico: %s ",arrayMusico[i].apellido);
+            printf ("\nTipo de instrumento : %s",buffer);
+            printf ("\nId de orquesta : %d",arrayMusico[i].idOrquesta);
+            printf ("\nNombre de instrumento: %s",arrayInstrumento[auxPos].nombre);
+            printf ("\nId de instrumento : %d",arrayMusico[i].idInstrumento);
+            printf ("\nId del musico: %d ",arrayMusico[i].idMusico);
+            //printf ("\nPosicion: %d ",i);
+            //printf ("\nEstado : %d \n",arrayMusico[i].isEmpty);
+        }
+    }
+}
+
 void musicos_print(Musico* arrayMusico, int limite)
 {
     int i;
@@ -151,14 +190,15 @@ void musicos_print(Musico* arrayMusico, int limite)
 * \return int Return (-1) si Error [largo no valido o NULL pointer o no encuentra elementos con el valor buscado] - (0) si se elimina el elemento exitosamente
 *
 */
-int musicos_baja(Musico* arrayMusico,int limite)
+int musicos_baja(Musico* arrayMusico,int limiteMusico)
 {
     int posicion;
     int retorno=-1;
-    if (arrayMusico!=NULL && limite>0)
+    if (arrayMusico!=NULL && limiteMusico>0)
     {
-        musicos_print(arrayMusico,limite);
-        switch (musicos_findById("\nIngrese el id del musico a dar de baja: \n",arrayMusico,&posicion,limite))
+        musicos_print(arrayMusico,limiteMusico);
+        //musico_print(arrayMusico,limiteMusico,arrayInstrumento,limiteInstrumento);
+        switch (musicos_findById("\nIngrese el id del musico a dar de baja: \n",arrayMusico,&posicion,limiteMusico))
         {
             case 0:
             if (arrayMusico[posicion].isEmpty==0)
@@ -192,7 +232,7 @@ int musicos_modificar(Musico* arrayMusico,Orquesta* arrayOrquesta,int limiteOrqu
         musicos_print(arrayMusico,limiteMusico);
         //musico_findById("Ingrese el id del autor a modificar",arrayMusico,&posicion,limite);
         //posicion=musico_getId(msj,arrayMusico,limite);
-        if (musicos_findById("\NIngrese el id del musico a modificar: \n",arrayMusico,&posicion,limiteMusico)==0)
+        if (musicos_findById("\nIngrese el id del musico a modificar: \n",arrayMusico,&posicion,limiteMusico)==0)
         {
             while (opcion!=3)
             {
@@ -204,13 +244,13 @@ int musicos_modificar(Musico* arrayMusico,Orquesta* arrayOrquesta,int limiteOrqu
                 switch(opcion)
                 {
                     case 1:
-                    if (getInt("\NIngrese nuevo edad: \n","Edad no valido.\n",18,200,TRIES,&auxEdad)==0)
+                    if (getInt("\nIngrese nuevo edad: \n","Edad no valido.\n",18,200,TRIES,&auxEdad)==0)
                     {
                         arrayMusico[posicion].edad=auxEdad;
                         printf ("Modificacion con exito.\n");
                     }else
                         {
-                            printf ("\NModificacion sin exito.\n");
+                            printf ("\nModificacion sin exito.\n");
                         }
                     break;
                     case 2:
@@ -262,6 +302,72 @@ int musicos_findById(char* msj,Musico* arrayMusico,int* idEncontrado, int limite
     return retorno;
 }
 
+int musico_buscarID(Musico* arrayMusico, int limite, int valorBuscado, int* posicion)                    //cambiar musico
+{
+    int retorno=-1;
+    int i;
+    if(arrayMusico!= NULL && limite>=0)
+    {
+        for(i=0;i<limite;i++)
+        {
+            if(arrayMusico[i].isEmpty==1)
+                continue;
+            else if(arrayMusico[i].idMusico==valorBuscado)                                                   //cambiar campo ID
+            {
+                retorno=0;
+                *posicion=i;
+                break;
+            }
+        }
+    }
+    return retorno;
+}
+
+int musicos_bajaOrquesta(Musico* arrayMusico,int limiteMusico, Orquesta* arrayOrquesta, int limiteOrquesta)
+{
+    int retorno=-1;
+    int i;
+    int j;
+    if (arrayMusico!=NULL && arrayOrquesta!=NULL && limiteMusico>0 && limiteOrquesta>0)
+    {
+        for (i=0;i<limiteOrquesta;i++)
+        {
+            if (arrayOrquesta[i].isEmpty==1)
+            {
+                for (j=0;j<limiteMusico;j++)
+                {
+                    arrayMusico[j].isEmpty=1;
+                    retorno=0;
+                }
+            }
+        }
+    }
+    return retorno;
+}
+
+int musicos_bajaPorOrquesta(Musico* arrayMusico, int limite, int idAEliminar)                                      //cambiar musico
+{
+    int retorno=-1;
+    int i;
+    if(arrayMusico!=NULL && limite>0)
+    {
+        for(i=0;i<limite;i++)
+        {
+            if(arrayMusico[i].idOrquesta == idAEliminar)
+            {
+                arrayMusico[i].isEmpty=1;
+                arrayMusico[i].idMusico=0;                                                                   //cambiar campo id
+                arrayMusico[i].edad=0;                                                               //cambiar campo edad                                                            //cambiar campo varFloat
+                strcpy(arrayMusico[i].nombre,"");                                                   //cambiar campo nombre
+                strcpy(arrayMusico[i].apellido,"");
+                arrayMusico[i].idOrquesta = 0;
+                arrayMusico[i].idInstrumento = 0;                                               //cambiar campo apellido
+                retorno=0;
+            }
+        }
+    }
+    return retorno;
+}
 void harcodearMusicos(Musico* arrayMusico, int limite)
 {
     strcpy(arrayMusico[0].nombre,"Daniel");
@@ -287,7 +393,5 @@ void harcodearMusicos(Musico* arrayMusico, int limite)
     arrayMusico[2].idOrquesta=0;
     arrayMusico[2].isEmpty=0;
     arrayMusico[2].idMusico=2;
-
-
 }
 #endif // MUSICO_C_INCLUDED

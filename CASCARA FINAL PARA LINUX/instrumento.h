@@ -13,8 +13,10 @@ int instrumento_initStruct(Instrumento* arrayInstrumento, int limite);
 int instrumento_findEmpty (Instrumento* arrayInstrumento,int limite, int* resultado);
 int instrumento_alta(Instrumento* arrayInstrumento,int* id, int limite);
 void instrumento_print(Instrumento* arrayInstrumento, int limite);
+
 int instrumento_findById(char* msj,Instrumento* arrayInstrumento,int* idEncontrado, int limite);
 int instrumento_baja(Instrumento* arrayInstrumento,int limite);
 void harcodearInstrumento(Instrumento* arrayInstrumento, int limite);
+int instrumento_buscarID(Instrumento* arrayInstrumento, int limite, int valorBuscado, int* posicion);
 
 #endif // INSTRUMENTO_H_INCLUDED

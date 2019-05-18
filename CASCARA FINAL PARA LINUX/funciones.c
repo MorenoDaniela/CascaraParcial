@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <stdio_ext.h>
+//#include <stdio_ext.h>
 
 int getInt(char *msj, char *errorMsj, int minimo, int maximo, int reintentos, int *resultado)
 {
@@ -66,8 +66,8 @@ int getChar(char *msj, char *errorMsj, char minimo, char maximo, int reintentos,
         do
         {
             printf("%s", msj);
-            //fflush(stdin);//
-            __fpurge(stdin);
+            fflush(stdin);//
+            //__fpurge(stdin);
             scanf("%c", &buffer);
             if(isValidChar(buffer, minimo, maximo))
             {
@@ -94,8 +94,8 @@ int getString(char* msj, char* errorMsj, int minimo, int maximo, int reintentos,
         do
         {
             printf("%s",msj);
-            __fpurge(stdin);
-            //fflush(stdin);
+            //__fpurge(stdin);
+            fflush(stdin);
             fgets(bufferStr,sizeof(bufferStr),stdin);
             bufferStr[strlen(bufferStr)-1] = '\0';
             if(strlen(bufferStr)>=minimo && strlen(bufferStr) <maximo)
@@ -239,8 +239,8 @@ int getSex(char *mensaje, char *mensajeError, char minimo, char maximo, int rein
     {
         do
         {
-            //fflush (stdin);
-            __fpurge(stdin);
+            fflush (stdin);
+            //__fpurge(stdin);
             printf("%s", mensaje);
             scanf("%c", &buffer);
 
@@ -312,7 +312,7 @@ int getAlfanumerico(char* msj, char* msjError, int minSize, int maxSize, int rei
                 }
                 else
                 {
-                    printf("%s 2",msjError);
+                    printf("%s",msjError);
                     reintentos--;
                 }
             }

@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <stdio_ext.h>
+//#include <stdio_ext.h>
 
 #include "validaciones.h"
 #define TRUE 1

@@ -69,3 +69,67 @@
 	<stdio_ext.h>
 	"validaciones.h"
 
+1558055028 source:c:\users\pc\desktop\workspace\cascara final para linux\fantasma.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"fantasma.h"
+	<stdio_ext.h>
+	"funciones.h"
+
+1558055028 c:\users\pc\desktop\workspace\cascara final para linux\fantasma.h
+
+1558055028 c:\users\pc\desktop\workspace\cascara final para linux\funciones.h
+
+1558113206 source:c:\users\pc\desktop\workspace\cascara final para linux\funciones.c
+	"validaciones.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1558055028 c:\users\pc\desktop\workspace\cascara final para linux\validaciones.h
+
+1558167764 source:c:\users\pc\desktop\workspace\cascara final para linux\orquesta.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"orquesta.h"
+	"funciones.h"
+
+1558167199 c:\users\pc\desktop\workspace\cascara final para linux\orquesta.h
+
+1558113261 source:c:\users\pc\desktop\workspace\cascara final para linux\validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"validaciones.h"
+
+1558158486 source:c:\users\pc\desktop\workspace\cascara final para linux\instrumento.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"instrumento.h"
+	"funciones.h"
+
+1558157228 c:\users\pc\desktop\workspace\cascara final para linux\instrumento.h
+
+1558167032 source:c:\users\pc\desktop\workspace\cascara final para linux\musico.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"musico.h"
+	"funciones.h"
+
+1558167031 c:\users\pc\desktop\workspace\cascara final para linux\musico.h
+	"instrumento.h"
+	"orquesta.h"
+
+1558167032 source:c:\users\pc\desktop\workspace\cascara final para linux\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"orquesta.h"
+	"musico.h"
+	"instrumento.h"
+	"funciones.h"
+

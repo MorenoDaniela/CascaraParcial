@@ -6,7 +6,7 @@
 #include <string.h>
 
 #include "orquesta.h"
-#include <stdio_ext.h>//para linux
+//#include <stdio_ext.h>//para linux
 
 #include "funciones.h"
 
@@ -33,7 +33,7 @@ int orquesta_findEmpty (Orquesta* arrayOrquesta,int limite, int* resultado)
     int i;
     if (arrayOrquesta!=NULL && limite>=0 && resultado!=NULL)
     {
-        for (i=0;i<=limite;i++)
+        for (i=0;i<limite;i++)
         {
             if (arrayOrquesta[i].isEmpty==1)
             {
@@ -52,8 +52,8 @@ int orquesta_alta(Orquesta* arrayOrquesta,int *id, int limite)
     int auxTipo;
     int retorno=-1;
     int lugarVacio;
-    __fpurge(stdin);
-    //fflush(stdin);
+    //__fpurge(stdin);
+    fflush(stdin);
     if (limite>0 && id!=NULL )
     {
         if(orquesta_findEmpty(arrayOrquesta,limite,&lugarVacio)!=-1)
@@ -84,7 +84,7 @@ int orquesta_alta(Orquesta* arrayOrquesta,int *id, int limite)
 void orquesta_print(Orquesta* arrayOrquesta, int limite)
 {
     int i;
-    for (i=0;i<=limite;i++)
+    for (i=0;i<limite;i++)
     {
         if (arrayOrquesta[i].isEmpty==0)
         {
@@ -126,29 +126,54 @@ int orquesta_findById(char* msj,Orquesta* arrayOrquesta,int* idEncontrado, int l
     return retorno;
 }
 
-int orquesta_baja(Orquesta* arrayOrquesta,int limite)
+int orquesta_baja(Orquesta* arrayOrquesta,int limite, int* idBajada)
 {
     int posicion;
     int retorno=-1;
+    int id;
     if (arrayOrquesta!=NULL && limite>0)
     {
         orquesta_print(arrayOrquesta,limite);
-        switch (orquesta_findById("\nIngrese el id del orquesta a dar de baja: \n",arrayOrquesta,&posicion,limite))
+        getInt("\nID a cancelar: ","Error.\n",0,limite,TRIES,&id);
+        switch (orquesta_buscarID(arrayOrquesta,limite,id,&posicion))
+                //orquesta_findById("\nIngrese el id del orquesta a dar de baja: \n",arrayOrquesta,&posicion,limite))
         {
             case 0:
             if (arrayOrquesta[posicion].isEmpty==0)
             {
+                *idBajada=id;
                 arrayOrquesta[posicion].isEmpty=1;
                 printf ("\nSe borro el id: %d \n",arrayOrquesta[posicion].idOrquesta);
                 retorno=0;
             }
             break;
-            case 1:
+            case -1:
                 printf ("\nNo se encontro el id.\n");
                 break;
             default:
                 printf ("\nNo encontro el id.\n");
                 break;
+        }
+    }
+    return retorno;
+}
+
+int orquesta_buscarID(Orquesta* arrayOrquesta, int limite, int valorBuscado, int* posicion)                    //cambiar orquesta
+{
+    int retorno=-1;
+    int i;
+    if(arrayOrquesta!= NULL && limite>=0)
+    {
+        for(i=0;i<limite;i++)
+        {
+            if(arrayOrquesta[i].isEmpty==1)
+                continue;
+            else if(arrayOrquesta[i].idOrquesta==valorBuscado)                                                   //cambiar campo ID
+            {
+                retorno=0;
+                *posicion=i;
+                break;
+            }
         }
     }
     return retorno;
@@ -166,13 +191,13 @@ void harcodearOrquestas(Orquesta* arrayOrquesta, int limite)
     strcpy(arrayOrquesta[1].lugar,"Guillon 254");
     arrayOrquesta[1].isEmpty=0;
     arrayOrquesta[1].idOrquesta=3;
-    arrayOrquesta[0].tipo=3;
+    arrayOrquesta[1].tipo=3;
 
     strcpy(arrayOrquesta[2].nombre,"OrquestaTres");
     strcpy(arrayOrquesta[2].lugar,"Capital 254");
     arrayOrquesta[2].isEmpty=0;
     arrayOrquesta[2].idOrquesta=5;
-    arrayOrquesta[0].tipo=2;
+    arrayOrquesta[2].tipo=2;
 }
 
 

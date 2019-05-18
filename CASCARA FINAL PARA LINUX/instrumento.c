@@ -1,15 +1,12 @@
 #ifndef INSTRUMENTO_C_INCLUDED
 #define INSTRUMENTO_C_INCLUDED
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #include "instrumento.h"
-#include <stdio_ext.h>//para linux
-
+//#include <stdio_ext.h>//para linux
 #include "funciones.h"
-
 #define TRIES 3
 #define CUERDAS 1
 #define VIENTO_MADERA 2
@@ -51,7 +48,7 @@ int instrumento_findEmpty (Instrumento* arrayInstrumento,int limite, int* result
     int i;
     if (arrayInstrumento!=NULL && limite>=0 && resultado!=NULL)
     {
-        for (i=0;i<=limite;i++)
+        for (i=0;i<limite;i++)
         {
             if (arrayInstrumento[i].isEmpty==1)
             {
@@ -59,7 +56,6 @@ int instrumento_findEmpty (Instrumento* arrayInstrumento,int limite, int* result
                 retorno=0;
                 break;
             }
-            //retorno = 1;
         }
     }
     return retorno;
@@ -76,8 +72,8 @@ int instrumento_alta(Instrumento* arrayInstrumento,int *id, int limite)
     int retorno=-1;
     int lugarVacio;
     int auxTipo;
-    __fpurge(stdin);
-    //fflush(stdin);
+    //__fpurge(stdin);
+    fflush(stdin);
     if (limite>0 && id!=NULL )
     {
         if(instrumento_findEmpty(arrayInstrumento,limite,&lugarVacio)!=-1)
@@ -88,11 +84,12 @@ int instrumento_alta(Instrumento* arrayInstrumento,int *id, int limite)
                 "3-Viento-metal.\n 4-Percusion\n","Error, tipo no valido.\n",1,4,TRIES,&auxTipo)==0)
             {
                arrayInstrumento[lugarVacio].idInstrumento=*id;
+               printf ("\nEl id es: %d \n",*id);
                 (*id)++;
                 arrayInstrumento[lugarVacio].tipo=auxTipo;
                arrayInstrumento[lugarVacio].isEmpty=0;
                printf("\nSe cargaron con exito los datos.\n");
-               //printf ("\nEl id es: %d \n",id);
+
                retorno=0;
             }else
                 {
@@ -114,16 +111,30 @@ int instrumento_alta(Instrumento* arrayInstrumento,int *id, int limite)
 void instrumento_print(Instrumento* arrayInstrumento, int limite)
 {
     int i;
-    for (i=0;i<=limite;i++)
+    char buffer[20];
+    for (i=0;i<limite;i++)
     {
         if (arrayInstrumento[i].isEmpty==0)
         {
+            switch (arrayInstrumento[i].tipo)
+            {
+            case 1:
+                strncpy(buffer,"Cuerdas",sizeof(buffer));
+                break;
+            case 2:
+                strncpy(buffer,"Viento-Madera",sizeof(buffer));
+                break;
+            case 3:
+                strncpy(buffer,"Viento-Metal",sizeof(buffer));
+                break;
+            case 4:
+                strncpy(buffer,"Percusion",sizeof(buffer));
+                break;
+            }
             printf ("\n********************************************");
             printf ("\nNombre del instrumento: %s ",arrayInstrumento[i].nombre);
-            printf ("\nTipo del instrumento: %d ",arrayInstrumento[i].tipo);
+            printf ("\nTipo del instrumento: %s ",buffer);
             printf ("\nId del instrumento: %d ",arrayInstrumento[i].idInstrumento);
-            //printf ("\nPosicion: %d ",i);
-            //printf ("\nEstado : %d \n",arrayInstrumento[i].isEmpty);
         }
     }
 }
@@ -166,7 +177,7 @@ int instrumento_findById(char* msj,Instrumento* arrayInstrumento,int* idEncontra
     int i;
     int retorno=1;
     int auxInstrumento;
-    //revisar limite aca abajo
+
     if (msj!=NULL && arrayInstrumento !=NULL && idEncontrado!=NULL && limite>0)
     {
         if (getInt(msj,"\nOpcion no valida.\n",0,limite,TRIES,&auxInstrumento)==0)
@@ -188,6 +199,27 @@ int instrumento_findById(char* msj,Instrumento* arrayInstrumento,int* idEncontra
     return retorno;
 }
 
+int instrumento_buscarID(Instrumento* arrayInstrumento, int limite, int valorBuscado, int* posicion)                    //cambiar musico
+{
+    int retorno=-1;
+    int i;
+    if(arrayInstrumento!= NULL && limite>=0)
+    {
+        for(i=0;i<limite;i++)
+        {
+            if(arrayInstrumento[i].isEmpty==1)
+                continue;
+            else if(arrayInstrumento[i].idInstrumento==valorBuscado)                                                   //cambiar campo ID
+            {
+                retorno=0;
+                *posicion=i;
+                break;
+            }
+        }
+    }
+    return retorno;
+}
+
 void harcodearInstrumento(Instrumento* arrayInstrumento, int limite)
 {
     strcpy(arrayInstrumento[0].nombre,"Guitarra");
@@ -203,7 +235,7 @@ void harcodearInstrumento(Instrumento* arrayInstrumento, int limite)
     strcpy(arrayInstrumento[2].nombre,"Bateria");
     arrayInstrumento[2].tipo=4;
     arrayInstrumento[2].isEmpty=0;
-    arrayInstrumento[2].idInstrumento=1;
+    arrayInstrumento[2].idInstrumento=0;
 }
 
 #endif // INSTRUMENTO_C_INCLUDED
