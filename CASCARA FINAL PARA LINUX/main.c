@@ -129,7 +129,7 @@ int main()
                 case 4:
                     if (flagMusico>0 && flagOrquesta>0 && flagInstrumento>0)
                     {
-                        musicos_print(musicos,MAX_MUSICO);
+                        musico_print(musicos,MAX_MUSICO,instrumentos,MAX_INSTRUMENTO);
                     }else
                         printf("\nNo hay lista.\n");
                     break;

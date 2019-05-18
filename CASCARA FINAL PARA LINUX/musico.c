@@ -382,7 +382,7 @@ void harcodearMusicos(Musico* arrayMusico, int limite)
     strcpy(arrayMusico[1].apellido,"Suarez");
     arrayMusico[1].edad=30;
     arrayMusico[1].idInstrumento=1;
-    arrayMusico[1].idOrquesta=2;
+    arrayMusico[1].idOrquesta=5;
     arrayMusico[1].isEmpty=0;
     arrayMusico[1].idMusico=1;
 
@@ -390,7 +390,7 @@ void harcodearMusicos(Musico* arrayMusico, int limite)
     strcpy(arrayMusico[2].apellido,"Pepe");
     arrayMusico[2].edad=55;
     arrayMusico[2].idInstrumento=2;
-    arrayMusico[2].idOrquesta=0;
+    arrayMusico[2].idOrquesta=3;
     arrayMusico[2].isEmpty=0;
     arrayMusico[2].idMusico=2;
 }

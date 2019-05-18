@@ -104,7 +104,7 @@
 	<string.h>
 	"validaciones.h"
 
-1558158486 source:c:\users\pc\desktop\workspace\cascara final para linux\instrumento.c
+1558168248 source:c:\users\pc\desktop\workspace\cascara final para linux\instrumento.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -124,7 +124,7 @@
 	"instrumento.h"
 	"orquesta.h"
 
-1558167032 source:c:\users\pc\desktop\workspace\cascara final para linux\main.c
+1558196351 source:c:\users\pc\desktop\workspace\cascara final para linux\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
